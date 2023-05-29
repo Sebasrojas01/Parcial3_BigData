@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the workflow will run
@@ -24,13 +22,30 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with: 
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY_ID}}
+          aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
+          aws-region: us-east-1
+          
+      - name: Install virtualenv, requeriments and Pytest
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          pip install virtualenv
+          virtualenv env
+          source env/bin/activate
+          
+          pip install -r requirements.txt
+          
+          cd punto_3/clientes 
+          pytest
+          python kinesis.py
+          
+      #- name: Update code
+      #  run: |
+      #    source env/bin/activate
+      #    aws s3 cp punto2/parcial_3_noticias.ipynb s3://aws-emr-resources-070749073205-us-east-1/notebooks/e-5SG6CJ0IP3D4A34H9K2ZOYW7S/
