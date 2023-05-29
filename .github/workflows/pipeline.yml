@@ -43,8 +43,9 @@ jobs:
           
           cd punto3/clientes 
           pytest
-       #   python kinesis.py
           
+          cd ../kinesis 
+          python kinesis.py
       #- name: Update code
       #  run: |
       #    source env/bin/activate
