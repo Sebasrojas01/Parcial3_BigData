@@ -46,7 +46,8 @@ jobs:
           
           cd ../kinesis 
           python test_kinesis.py
-      #- name: Update code
-      #  run: |
-      #    source env/bin/activate
-      #    aws s3 cp punto2/parcial_3_noticias.ipynb s3://aws-emr-resources-070749073205-us-east-1/notebooks/e-5SG6CJ0IP3D4A34H9K2ZOYW7S/
+      
+      - name: Update code
+        run: |
+          source env/bin/activate
+          aws s3 cp punto2/parcial_final.ipynb aws-emr-resources-251368703103-us-east-1/notebooks/e-5YXABES0QH24F1925NIQQ0O3Q//
