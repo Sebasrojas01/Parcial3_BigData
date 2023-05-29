@@ -27,6 +27,7 @@ def process_records(records):
             print(precio_historial[:-1])
             print(len(precio_historial[:-1]))
             precio_historial_ = precio_historial[:-1]
+            print("precio hist: {}".format(precio_historial_))
             bollingerSuperior = bollingerSup(precio_historial_)
             print("Precio",precio)
             print("Bollinger",bollingerSuperior)

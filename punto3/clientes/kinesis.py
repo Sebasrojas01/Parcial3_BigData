@@ -19,10 +19,12 @@ def get_data():
     random_date = start_date + timedelta(seconds=random_seconds)
     close_value = round(random.uniform(4400.000000, 4850.000000), 6)
     formatted_date = random_date.strftime('%Y-%m-%d %H:%M:%S')
-    return {
+    
+    data = {
         'date': formatted_date,
         'close': close_value}
 
+    return data
 
 def generate(stream_name, kinesis_client):
     while True:
