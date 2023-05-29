@@ -45,7 +45,7 @@ jobs:
           pytest
           
           cd ../kinesis 
-          python kinesis.py
+          python test_kinesis.py
       #- name: Update code
       #  run: |
       #    source env/bin/activate
