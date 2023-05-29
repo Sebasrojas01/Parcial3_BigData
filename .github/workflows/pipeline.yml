@@ -41,7 +41,7 @@ jobs:
           
           pip install -r requirements.txt
           
-          cd punto_3/clientes 
+          cd punto3/clientes 
           pytest
           python kinesis.py
           
