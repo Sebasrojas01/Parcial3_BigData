@@ -43,7 +43,7 @@ jobs:
           
           cd punto3/clientes 
           pytest
-          python kinesis.py
+       #   python kinesis.py
           
       #- name: Update code
       #  run: |
